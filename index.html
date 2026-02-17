@@ -5,8 +5,19 @@
 </head>
 <body>
 
-<h1>Ahoj, toto je můj web</h1>
-<p>Toto jsem vytvořil přes GitHub Pages.</p>
+<button onclick="spustit()">Spustit analýzu</button>
+
+<pre id="vystup"></pre>
+
+<script>
+async function spustit() {
+    let response = await fetch("vystup.json");
+    let data = await response.json();
+
+    document.getElementById("vystup").innerText =
+        JSON.stringify(data, null, 2);
+}
+</script>
 
 </body>
 </html>
